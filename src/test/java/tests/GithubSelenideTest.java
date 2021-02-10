@@ -17,7 +17,7 @@ public class GithubSelenideTest {
        $("div.BorderGrid-cell p").shouldHave(text("Concise UI Tests with Java!"));
        open("/selenide/selenide/wiki");
        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
-       open("//selenide/selenide/wiki/SoftAssertions");
+       open("/selenide/selenide/wiki/SoftAssertions");
        $("#wiki-body").shouldHave(Condition.text("Using JUnit5 extend test class:"));
     }
 }
