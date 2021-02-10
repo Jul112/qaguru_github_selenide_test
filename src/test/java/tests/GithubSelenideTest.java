@@ -7,12 +7,13 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class github_selenide_test {
+public class GithubSelenideTest {
 
     @Test
-    void github_selenide_unit5Test() {
+    void githubSelenideTest() {
        Configuration.baseUrl="https://github.com";
        open("/selenide/selenide");
+
        $("div.BorderGrid-cell p").shouldHave(text("Concise UI Tests with Java!"));
        open("/selenide/selenide/wiki");
        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
