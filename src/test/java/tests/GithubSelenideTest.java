@@ -18,7 +18,6 @@ public class GithubSelenideTest {
        open("/selenide/selenide/wiki");
        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
        open("//selenide/selenide/wiki/SoftAssertions");
-       //Condition.text("Using JUnit5 extend test class");
        $("#wiki-body").shouldHave(Condition.text("Using JUnit5 extend test class:"));
     }
 }
