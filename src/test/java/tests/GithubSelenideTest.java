@@ -1,24 +1,23 @@
 package tests;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
+
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class GithubSelenideTest {
 
     @Test
     void githubSelenideTest() {
-       Configuration.baseUrl="https://github.com";
-       open("/selenide/selenide");
-       $("div.BorderGrid-cell p").shouldHave(text("Concise UI Tests with Java!"));
-
-       $("span[data-content=Wiki]").click();
-       $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
-       open("/selenide/selenide/wiki/SoftAssertions");
-       $("#wiki-body").shouldHave(Condition.text("Using JUnit5 extend test class:"));
+       open("https://github.com");
+       //open("/selenide/selenide");
+        $("[name=q]").val("selenide").pressEnter();
+        $("em").shouldHave(text("selenide")).click();
+        $(".BorderGrid-cell").shouldHave(text("Concise UI Tests with Java!"));
+        $("span[data-content=Wiki]").click();
+        $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
+        $$(".Box-row").find(text("SoftAssertions")).click();
+        $("#wiki-body").shouldHave(text("Using JUnit5 extend test class:"));
     }
 }
 
