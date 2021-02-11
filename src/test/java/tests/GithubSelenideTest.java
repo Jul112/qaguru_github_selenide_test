@@ -13,11 +13,10 @@ public class GithubSelenideTest {
     void githubSelenideTest() {
        Configuration.baseUrl="https://github.com";
        open("/selenide/selenide");
-
        $("div.BorderGrid-cell p").shouldHave(text("Concise UI Tests with Java!"));
-       open("/selenide/selenide/wiki");
-       //$("#wiki-pages-box").shouldHave(text("SoftAssertions"));
-        $("span[data-content=Wiki]").click();
+
+       $("span[data-content=Wiki]").click();
+       $("#wiki-pages-box").shouldHave(text("SoftAssertions"));
        open("/selenide/selenide/wiki/SoftAssertions");
        $("#wiki-body").shouldHave(Condition.text("Using JUnit5 extend test class:"));
     }
